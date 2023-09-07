@@ -1,0 +1,16 @@
+version: "3"
+services:
+  httpd:
+    build:
+      context: httpd
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:80
+      - 8443:443
+    volumes:
+      - ./httpd/www:/usr/local/apache2/htdocs/
+      - ./httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./httpd/httpd-ssl.conf:/usr/local/apache2/conf/extra/httpd-ssl.conf
+      # - ./httpd/dev.key:/usr/local/apache2/conf/server.key
+      # - ./httpd/dev.crt:/usr/local/apache2/conf/server.crt
+
